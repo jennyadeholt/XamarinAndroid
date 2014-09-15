@@ -19,7 +19,7 @@ import com.jayway.xamarin.contacts.ContactActivity;
 import com.jayway.xamarin.news.NewsActivity;
 import com.jayway.xamarin.server.SnalebodaServer;
 
-public class ReportActivity extends Activity implements SnalebodaServer.IncidentListener {
+public class IncidentActivity extends Activity implements SnalebodaServer.IncidentListener {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
@@ -99,7 +99,7 @@ public class ReportActivity extends Activity implements SnalebodaServer.Incident
     @Override
     public void onIncidentSent(boolean result) {
         progressBar.setVisibility(View.INVISIBLE);
-        Toast.makeText(this, "Incident has " + (result ? "" : "not ") + "been sent" , Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Rapporten har " + (result ? "" : "inte ") + "skickats" , Toast.LENGTH_LONG).show();
 
         if (result) {
             description.setText("");

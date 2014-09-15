@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.jayway.xamarin.R;
-import com.jayway.xamarin.report.ReportActivity;
+import com.jayway.xamarin.report.IncidentActivity;
 import com.jayway.xamarin.contacts.ContactActivity;
 
 public class NewsActivity extends ListActivity {
@@ -43,7 +43,7 @@ public class NewsActivity extends ListActivity {
             case R.id.action_news:
                 return true;
             case R.id.action_report:
-                startActivity(new Intent(this, ReportActivity.class));
+                startActivity(new Intent(this, IncidentActivity.class));
                 this.finish();
             default:
                 return super.onOptionsItemSelected(item);

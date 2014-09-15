@@ -16,8 +16,7 @@ import android.widget.ListView;
 
 import com.jayway.xamarin.news.NewsActivity;
 import com.jayway.xamarin.R;
-import com.jayway.xamarin.report.ReportActivity;
-import com.jayway.xamarin.server.SnalebodaServer;
+import com.jayway.xamarin.report.IncidentActivity;
 
 public class ContactActivity extends ListActivity {
 
@@ -82,7 +81,7 @@ public class ContactActivity extends ListActivity {
                 this.finish();
                 return true;
             case R.id.action_report:
-                startActivity(new Intent(this, ReportActivity.class));
+                startActivity(new Intent(this, IncidentActivity.class));
                 this.finish();
             default:
                 return super.onOptionsItemSelected(item);

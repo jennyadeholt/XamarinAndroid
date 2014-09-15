@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 import com.jayway.xamarin.contacts.ContactActivity;
 import com.jayway.xamarin.news.NewsActivity;
-import com.jayway.xamarin.report.ReportActivity;
+import com.jayway.xamarin.report.IncidentActivity;
 
 public class StartActivity extends Activity {
     /**
@@ -38,8 +38,7 @@ public class StartActivity extends Activity {
                 startActivity(new Intent(this, NewsActivity.class));
                 return true;
             case R.id.action_report:
-                startActivity(new Intent(this, ReportActivity.class));
-                this.finish();
+                startActivity(new Intent(this, IncidentActivity.class));
             default:
                 return super.onOptionsItemSelected(item);
         }
