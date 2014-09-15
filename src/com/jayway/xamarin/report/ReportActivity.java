@@ -1,4 +1,4 @@
-package com.jayway.xamarin;
+package com.jayway.xamarin.report;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,19 +6,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.jayway.xamarin.R;
 import com.jayway.xamarin.contacts.ContactActivity;
 import com.jayway.xamarin.news.NewsActivity;
-import com.jayway.xamarin.report.ReportActivity;
 
-public class StartActivity extends Activity {
-    /**
-     * Called when the activity is first created.
-     */
+public class ReportActivity extends Activity {
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.report);
     }
 
     @Override
@@ -26,6 +25,15 @@ public class StartActivity extends Activity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+
+    public void takePicture(View view) {
+
+    }
+
+    public void sendReport(View view) {
+
     }
 
     @Override
@@ -38,8 +46,7 @@ public class StartActivity extends Activity {
                 startActivity(new Intent(this, NewsActivity.class));
                 return true;
             case R.id.action_report:
-                startActivity(new Intent(this, ReportActivity.class));
-                this.finish();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

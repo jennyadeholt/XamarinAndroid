@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@drawable/background"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+            style="@style/Small"
+            android:text="Namn"/>
+
+    <EditText
+            android:id="@+id/name"
+            style="@style/Medium"
+            android:layout_width="fill_parent"
+            android:inputType="text"/>
+
+    <TextView
+            style="@style/Small"
+            android:text="Beskrivning"/>
+
+    <EditText
+            android:id="@+id/description"
+            style="@style/Medium"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:lines="4"
+            android:inputType="textMultiLine"/>
+
+    <TextView
+            style="@style/Small"
+            android:text="Bild"/>
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+        <ImageView
+                android:id="@+id/image"
+                android:src="@android:drawable/ic_menu_camera"
+                android:onClick="takePicture"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </FrameLayout>
+
+
+    <ImageView
+            android:src="@drawable/divider"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="1px"/>
+
+    <Button
+            android:onClick="sendReport"
+            android:layout_gravity="center"
+            android:text="Skicka"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>

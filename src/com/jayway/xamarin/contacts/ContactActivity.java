@@ -1,24 +1,30 @@
-package com.jayway.xamarin;
+package com.jayway.xamarin.contacts;
 
-import android.app.Activity;
+import java.util.ArrayList;
+
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
 
-import com.jayway.xamarin.contacts.ContactActivity;
 import com.jayway.xamarin.news.NewsActivity;
+import com.jayway.xamarin.R;
 import com.jayway.xamarin.report.ReportActivity;
+import com.jayway.xamarin.server.SnalebodaServer;
 
-public class StartActivity extends Activity {
-    /**
-     * Called when the activity is first created.
-     */
+public class ContactActivity extends ListActivity {
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.list);
+
+        ContactsAdapter adapter = new ContactsAdapter(this, new ArrayList<Contact>());
+        setListAdapter(adapter);
     }
 
     @Override
@@ -32,10 +38,10 @@ public class StartActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_contacts:
-                startActivity(new Intent(this, ContactActivity.class));
                 return true;
             case R.id.action_news:
                 startActivity(new Intent(this, NewsActivity.class));
+                this.finish();
                 return true;
             case R.id.action_report:
                 startActivity(new Intent(this, ReportActivity.class));
@@ -43,5 +49,12 @@ public class StartActivity extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        int itemPosition = position;
+        Contact itemValue = (Contact) l.getItemAtPosition(position);
     }
 }
