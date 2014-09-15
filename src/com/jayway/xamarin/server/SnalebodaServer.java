@@ -94,12 +94,8 @@ public class SnalebodaServer {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            ArrayList<Contact> contacts = new Gson().fromJson(result, new TypeToken<ArrayList<Contact>>(){}.getType());
-
-            for (Contact c : contacts) {
-                Log.d("", c.getName());
-            }
             if (contactListener != null){
+                ArrayList<Contact> contacts = new Gson().fromJson(result, new TypeToken<ArrayList<Contact>>(){}.getType());
                 contactListener.onContacts(contacts);
             }
         }
@@ -114,12 +110,9 @@ public class SnalebodaServer {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            ArrayList<News> news = new Gson().fromJson(result, new TypeToken<ArrayList<News>>(){}.getType());
 
-            for (News c : news) {
-                Log.d("", c.getContent());
-            }
             if (newsListener != null) {
+                ArrayList<News> news = new Gson().fromJson(result, new TypeToken<ArrayList<News>>(){}.getType());
                 newsListener.onNews(news);
             }
         }
